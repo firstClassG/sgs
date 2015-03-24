@@ -39,6 +39,8 @@ $app->configureMode('development', function() use ($app) {
   ));
 });
 
+$app->response->header('Connection', 'close');
+
 /* ROUTES */
 $app->get('/station', function () use ($station) {
   echo $station->getAllStation();
@@ -60,7 +62,7 @@ $app->get('/radio/:id', function($id) use ($radio) {
   echo $radio->getRadio($id);
 });
 
-$app->post('/user', function() user($user, $app) {
+$app->post('/user', function() use ($user, $app) {
   $json = $app->request->getBody();
   $data = json_decode($json, true);
   $key = $data['key'];
