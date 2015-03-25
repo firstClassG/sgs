@@ -1,5 +1,7 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.pointer, .pointer[readonly] { cursor: pointer; }
+
 body {
   background-color: #eee;
 }
