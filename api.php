@@ -78,6 +78,16 @@ $app->post('/user', function() use ($user, $app) {
   }
 });
 
+$app->post('/user/satellites', function() use ($user, $app) {
+  $json = $app->request->getBody();
+  $data = json_decode($json, true);
+  if (isset($data['user_id'])) {
+    echo $user->getUserSatellites($data['user_id']);
+  } else {
+    $app->response()->status(400);
+  }
+});
+
 $app->post('/login', function() use ($user, $app) {
   $json = $app->request->getBody();
   $data = json_decode($json, true);
