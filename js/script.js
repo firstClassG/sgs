@@ -29,6 +29,7 @@ $(function() {
 
   $('.form_date').datetimepicker({
     format: 'MM dd yyyy',
+    linkFormat: 'MM dd yyyy',
     startDate: new Date(),
     weekStart: 1,
     todayBtn:  1,
@@ -41,6 +42,7 @@ $(function() {
 
   $('.form_time').datetimepicker({
     format: 'hh:ii',
+    linkFormat: 'hh:ii',
     weekStart: 1,
     autoclose: 1,
     todayHighlight: 1,
