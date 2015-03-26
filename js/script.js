@@ -27,6 +27,30 @@ $(function() {
     });
   }
 
+  $('[data-target="#satelliteModal"]').on('click', function() {
+    var satId = $('[name="satellite"]').val();
+    var modalBody = $('#satelliteModal .modal-body');
+    if (satId) {
+      $.ajax({
+        type: 'POST',
+        url: 'api.php/user/satellite',
+        data: JSON.stringify({"satellite_id": satId}),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(data) {
+          var template = $('#aSatellite').html();
+          Mustache.parse(template);
+          var rendered = Mustache.render(template, {satellite: data});
+          modalBody.html(rendered);
+        },
+        failure: function(errMsg) {
+        }
+      });
+    } else {
+      modalBody.html("Please Select a Satellite");
+    }
+  });
+
   $('.form_date').datetimepicker({
     format: 'MM dd yyyy',
     linkFormat: 'MM dd yyyy',

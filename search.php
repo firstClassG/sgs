@@ -43,6 +43,25 @@
   </div>
 </form>
 
+<div class="modal fade" id="satelliteModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="model-title">Satellite</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script type="x-tmpl-mustache" id="pickSatellite">
 <select name="satellite" class="form-control pointer">
   <option value="" disabled selected>Select a Satellite</option>
@@ -50,6 +69,21 @@
   <option value="{{id}}">{{name}}</option>
   {{/satellites}}
 </select>
+</script>
+
+<script type="x-tmpl-mustache" id="aSatellite">
+<table class="table">
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    {{#satellite}}
+    <tr>
+        <td>{{name}}</td>
+    </tr>
+    {{/satellite}}
+  </tbody>
+</table>
 </script>
 
 <?php

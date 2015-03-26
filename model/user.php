@@ -22,7 +22,7 @@ class User extends BaseGet {
       FROM user_satellite
       WHERE id = :id";
     $params = array(':id' => $id);
-    return $this->getData(array('sql' => $sql, 'params' => $params, 'fetchType' => 'fetchAll'));
+    return $this->getData(array('sql' => $sql, 'params' => $params));
   }
 
   function getUserSatellites($user_id) {
