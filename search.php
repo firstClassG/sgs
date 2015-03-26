@@ -10,14 +10,15 @@
 <form class="form-horizontal"  method="POST">
   <div class="form-group">
     <label for="satellite" class="col-md-2 control-label">Pick Satellite</label>
-    <div class="col-md-5" id="selectSatellite">
+    <div class="input-group col-md-5" id="selectSatellite">
+      <span class="button button-default input-group-addon pointer" data-toggle="modal" data-target="#satelliteModal"><span class="fa fa-question"></span></span>
     </div>
   </div>
   <div class="form-group">
     <label for="onDate" class="col-md-2 control-label">Pick Date</label>
     <div class="input-group date form_date col-md-5" data-link-field="onDate">
       <input class="form-control pointer" size="16" type="text" value="" readonly>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
     </div>
     <input type="hidden" id="onDate" name="onDate" value="" /><br/>
   </div>
@@ -25,7 +26,7 @@
     <label for="startTime" class="col-md-2 control-label">Start Time</label>
     <div class="input-group date form_time col-md-5" data-link-field="startTime">
       <input class="form-control pointer" size="16" type="text" value="" readonly>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+      <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
     </div>
     <input type="hidden" id="startTime" name="startTime" value="" /><br/>
   </div>
@@ -33,7 +34,7 @@
     <label for="dtp_input3" class="col-md-2 control-label">End Time</label>
     <div class="input-group date form_time col-md-5" data-link-field="endTime">
       <input class="form-control pointer" size="16" type="text" value="" readonly>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+      <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
     </div>
     <input type="hidden" id="endTime" name="endTime" value="" /><br/>
   </div>
@@ -44,8 +45,9 @@
 
 <script type="x-tmpl-mustache" id="pickSatellite">
 <select name="satellite" class="form-control pointer">
+  <option value="" disabled selected>Select a Satellite</option>
   {{#satellites}}
-  <option vale="{{id}}">{{name}}</option>
+  <option value="{{id}}">{{name}}</option>
   {{/satellites}}
 </select>
 </script>

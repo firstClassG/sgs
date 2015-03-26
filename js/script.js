@@ -20,7 +20,7 @@ $(function() {
         var template = $('#pickSatellite').html();
         Mustache.parse(template);
         var rendered = Mustache.render(template, {satellites: data});
-        $('#selectSatellite').html(rendered);
+        $('#selectSatellite').prepend(rendered);
       },
       failure: function(errMsg) {
       }
