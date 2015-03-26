@@ -28,8 +28,9 @@ $(function() {
   }
 
   $('[data-target="#satelliteModal"]').on('click', function() {
-    var satId = $('[name="satellite"]').val();
-    var modalBody = $('#satelliteModal .modal-body');
+    var satId = $('[name="satellite"]').val(),
+        modalBody = $('#satelliteModal .modal-body');
+
     if (satId) {
       $.ajax({
         type: 'POST',
@@ -52,12 +53,17 @@ $(function() {
   });
 
   $('[name="search"]').on('click', function() {
-    var satId = $('[name="satellite"]').val();
-    if (satId) {
+    var satId = $('[name="satellite"]').val(),
+        onDate = $('#onDate').val(),
+        startTime = $('#startTime').val(),
+        endTime = $('#endTime').val();
+
+    if (satId && onDate && startTime && endTime) {
       $.ajax({
         type: 'POST',
         url: 'api.php/search',
-        data: JSON.stringify({"satellite_id": satId}),
+        data: JSON.stringify({"satellite_id": satId, "onDate": onDate,
+                              "startTime": startTime, "endTime": endTime}),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
