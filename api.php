@@ -18,6 +18,7 @@ $station = new station($db);
 $equipment = new equipment($db);
 $radio = new radio($db);
 $user = new user($db);
+$search = new search($db);
 
 $privateKey = "thisissecure";
 
@@ -93,6 +94,17 @@ $app->post('/user/satellite', function() use ($user, $app) {
   $data = json_decode($json, true);
   if (isset($data['satellite_id'])) {
     echo $user->getUserSatellite($data['satellite_id']);
+  } else {
+    $app->response()->status(400);
+  }
+});
+
+$app->post('/search', function() use ($search, $app) {
+  $json = $app->request->getBody();
+  $data = json_decode($json, true);
+  if (isset($data['satellite_id'])) {
+    // echo $search->findGroundStationMatch();
+    echo "[{\"todo\": \"TODO\"}]";
   } else {
     $app->response()->status(400);
   }

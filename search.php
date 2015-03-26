@@ -39,7 +39,7 @@
     <input type="hidden" id="endTime" name="endTime" value="" /><br/>
   </div>
   <div class="text-center">
-    <input type="submit" name="search" class="btn btn-lg btn-primary" value="Search">
+    <span name="search" class="btn btn-lg btn-primary">Search</span>
   </div>
 </form>
 
@@ -60,6 +60,8 @@
     </div>
   </div>
 </div>
+
+<div id="searchResult"></div>
 
 
 <script type="x-tmpl-mustache" id="pickSatellite">
@@ -82,6 +84,21 @@
         <td>{{name}}</td>
     </tr>
     {{/satellite}}
+  </tbody>
+</table>
+</script>
+
+<script type="x-tmpl-mustache" id="result">
+<table class="table">
+  <thead>
+    <th>Todo</th>
+  </thead>
+  <tbody>
+    {{#todo}}
+    <tr>
+      <td>{{todo}}</td>
+    </tr>
+    {{/todo}}
   </tbody>
 </table>
 </script>

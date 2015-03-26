@@ -51,6 +51,27 @@ $(function() {
     }
   });
 
+  $('[name="search"]').on('click', function() {
+    var satId = $('[name="satellite"]').val();
+    if (satId) {
+      $.ajax({
+        type: 'POST',
+        url: 'api.php/search',
+        data: JSON.stringify({"satellite_id": satId}),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(data) {
+          var template = $('#result').html();
+          Mustache.parse(template);
+          var rendered = Mustache.render(template, {todo: data});
+          $('#searchResult').html(rendered);
+        },
+        failure: function(errMsg) {
+        }
+      });
+    }
+  });
+
   $('.form_date').datetimepicker({
     format: 'MM dd yyyy',
     linkFormat: 'MM dd yyyy',
